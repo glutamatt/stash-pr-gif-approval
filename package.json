@@ -1,0 +1,19 @@
+{
+  "name": "gif-approval",
+  "version": "0.0.0",
+  "description": "",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:gif-approval.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "logfmt": "~0.23.0",
+    "express": "~3.4.8"
+  }
+}
