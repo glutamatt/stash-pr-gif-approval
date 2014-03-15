@@ -3,6 +3,7 @@ var logfmt = require("logfmt");
 var fs = require('fs');
 var app = express();
 var Hogan = require('hogan.js');
+var UglifyJS = require("uglify-js");
 
 app.use(logfmt.requestLogger());
 app.use(express.static(__dirname + '/assets'));
@@ -15,7 +16,9 @@ var renderTpl = function(tpl, data, cb) {
 };
 
 app.get('/', function(req, res) {
-	renderTpl('index', {name:'matt'}, function(content){
+	renderTpl('index', {
+		code:UglifyJS.minify("plugin.js").code
+	}, function(content){
 		res.send(content);		
 	});
 });
