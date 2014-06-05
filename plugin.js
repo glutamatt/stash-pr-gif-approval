@@ -35,15 +35,15 @@ if(parse[0] == 'https:' && !parse[1] && parse[3] == 'projects' && parse[5] == 'r
 				return Math.floor(Math.random()*(maxx+1));
 			};
 
-			var words = ['approved', 'approval', 'applause', 'thumbs-up', 'awesome', 'agree'];
+			var words = ['approved', 'approval', 'applause', 'thumbs-up', 'awesome', 'agree', 'slow-clap'];
 
-			$.getJSON( 'http://api.giphy.com/v1/gifs/search?q='
+			$.getJSON( 'http://api.giphy.com/v1/gifs/random?tag='
 				+ words[intRand(words.length-1)] +
-				'&api_key=dc6zaTOxFJmzC&limit=50', function(d) {
+				'&api_key=dc6zaTOxFJmzC', function(d) {
 
-			  if(d.hasOwnProperty('data') && d.data instanceof Array) {
+			  if(d.hasOwnProperty('data')) {
 			  	try {
-			  		var imgUrl = d.data[intRand(d.data.length-1)].images.original.url;
+			  		var imgUrl = d.data.image_url;
 			  		stashPost('comments', JSON.stringify({text: '![Alt text]('+imgUrl+')'}), function(){
 			  			var onapproved = function(){window.location.reload(false);};
 			  			stashPost('approve', '', onapproved, onapproved);
