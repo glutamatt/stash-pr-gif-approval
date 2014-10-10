@@ -37,7 +37,7 @@ if(parse[0] == 'https:' && !parse[1] && parse[3] == 'projects' && parse[5] == 'r
 
 			var words = ['approved', 'approval', 'applause', 'thumbs-up', 'awesome', 'agree', 'slow-clap'];
 
-			$.getJSON( 'http://api.giphy.com/v1/gifs/random?tag='
+			$.getJSON( 'https://api.giphy.com/v1/gifs/random?tag='
 				+ words[intRand(words.length-1)] +
 				'&api_key=dc6zaTOxFJmzC', function(d) {
 
